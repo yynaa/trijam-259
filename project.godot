@@ -60,6 +60,10 @@ Shoot={
 2d_render/layer_1="Player - Enemy Bullets"
 2d_render/layer_2="Enemies - Player Bullets"
 
+[dotnet]
+
+project/assembly_name="Trijam-259"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
