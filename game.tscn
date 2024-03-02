@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://8ytit7wei05n"]
+[gd_scene load_steps=14 format=3 uid="uid://8ytit7wei05n"]
 
 [ext_resource type="Texture2D" uid="uid://8irc071n63ce" path="res://assets/gridtile.png" id="1_jclhm"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="2_mucxd"]
 [ext_resource type="PackedScene" uid="uid://c5yhh7ge4l01x" path="res://shader_controller.tscn" id="3_bicdv"]
 [ext_resource type="PackedScene" uid="uid://6e7tulelpw0" path="res://objects/player.tscn" id="4_goy1a"]
+[ext_resource type="Script" path="res://scripts/Ui.gd" id="4_e6b0f"]
+[ext_resource type="FontFile" uid="uid://dsicnultqqggr" path="res://assets/Silkscreen-Regular.ttf" id="4_yojxp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xfp32"]
 texture = ExtResource("1_jclhm")
@@ -14,9 +16,30 @@ texture_region_size = Vector2i(24, 24)
 tile_size = Vector2i(24, 24)
 sources/0 = SubResource("TileSetAtlasSource_xfp32")
 
+[sub_resource type="LabelSettings" id="LabelSettings_1qxd1"]
+font = ExtResource("4_yojxp")
+font_size = 28
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jfemr"]
+font = ExtResource("4_yojxp")
+
+[sub_resource type="LabelSettings" id="LabelSettings_q4id8"]
+font = ExtResource("4_yojxp")
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_mxnki"]
+font = ExtResource("4_yojxp")
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_8ty84"]
+font = ExtResource("4_yojxp")
+font_size = 48
+
 [node name="Game" type="Node"]
 
 [node name="Playfield" type="Node2D" parent="."]
+unique_name_in_owner = true
 
 [node name="Grid" type="TileMap" parent="Playfield"]
 tile_set = SubResource("TileSet_ft5su")
@@ -38,3 +61,117 @@ scale = Vector2(7.26967, 12.2674)
 
 [node name="Player" parent="Playfield" instance=ExtResource("4_goy1a")]
 position = Vector2(50, 50)
+[node name="Player" type="Area2D" parent="Playfield"]
+position = Vector2(100, 100)
+script = ExtResource("2_esnf4")
+
+[node name="Collider" type="CollisionPolygon2D" parent="Playfield/Player"]
+polygon = PackedVector2Array(-16, 12, -12, 0, -16, -12, 20, 0)
+
+[node name="Polygon" type="Polygon2D" parent="Playfield/Player"]
+polygon = PackedVector2Array(-16, 12, -12, 0, -16, -12, 20, 0)
+
+[node name="GUI" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="ShaderController" parent="GUI" instance=ExtResource("3_bicdv")]
+z_index = 7
+scale = Vector2(7.26967, 12.2674)
+
+[node name="Ui" type="Control" parent="GUI"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_e6b0f")
+
+[node name="Lives" type="Polygon2D" parent="GUI/Ui"]
+position = Vector2(214, 26)
+polygon = PackedVector2Array(-191, -23, -211, 8, -175, 48, -140, 7, -159, -22, -176, -6)
+
+[node name="Label" type="Label" parent="GUI/Ui/Lives"]
+texture_filter = 1
+offset_left = -194.163
+offset_top = -7.39583
+offset_right = -154.163
+offset_bottom = 28.6042
+size_flags_horizontal = 0
+text = "5"
+label_settings = SubResource("LabelSettings_1qxd1")
+horizontal_alignment = 1
+
+[node name="Bombs" type="Polygon2D" parent="GUI/Ui"]
+position = Vector2(300, 15)
+polygon = PackedVector2Array(-160.837, 4.4375, -198.51, 4.4375, -211.551, -4.4375, -206, 8, -206, 21, -211, 33, -197, 24, -161, 24, -150, 21, -141, 14, -149.245, 7.39583)
+
+[node name="Label" type="Label" parent="GUI/Ui/Bombs"]
+texture_filter = 1
+offset_left = -200.0
+offset_top = -6.0
+offset_right = -160.0
+offset_bottom = 30.0
+size_flags_horizontal = 0
+text = "5"
+label_settings = SubResource("LabelSettings_1qxd1")
+horizontal_alignment = 1
+
+[node name="ScoreBanner" type="Label" parent="GUI/Ui"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 439.0
+offset_top = 5.0
+offset_right = 497.0
+offset_bottom = 28.0
+text = "SCORE"
+label_settings = SubResource("LabelSettings_jfemr")
+
+[node name="Score" type="Label" parent="GUI/Ui"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 346.0
+offset_top = 23.0
+offset_right = 498.0
+offset_bottom = 46.0
+text = "987654321"
+label_settings = SubResource("LabelSettings_jfemr")
+horizontal_alignment = 2
+
+[node name="GameOver" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="Polygon2D" type="Polygon2D" parent="GameOver"]
+scale = Vector2(-13.9323, 0.564533)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(20.3843, -359.589, -58.6407, -354.275, -56.4874, 738.664, -51.2478, 1468.47, 30.8635, 1209.85, 22.394, 471.186)
+
+[node name="Label" type="Label" parent="GameOver"]
+texture_filter = 1
+offset_left = 45.0
+offset_top = 126.0
+offset_right = 461.0
+offset_bottom = 208.0
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_q4id8")
+
+[node name="Label2" type="Label" parent="GameOver"]
+texture_filter = 1
+offset_left = 164.0
+offset_top = 212.0
+offset_right = 580.0
+offset_bottom = 294.0
+text = "Score:"
+label_settings = SubResource("LabelSettings_mxnki")
+
+[node name="Score" type="Label" parent="GameOver"]
+texture_filter = 1
+offset_left = 51.0
+offset_top = 285.0
+offset_right = 469.0
+offset_bottom = 365.0
+text = "123456789"
+label_settings = SubResource("LabelSettings_8ty84")
+horizontal_alignment = 1

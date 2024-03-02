@@ -27,6 +27,8 @@ func _process(delta):
 	
 	position += velocity * delta
 	
+	position = position.clamp(Vector2(0,0), Vector2(64*24,64*24))
+	
 	shoot_timer -= delta
 	if Input.is_action_pressed("Shoot") and shoot_timer <= 0:
 		var nb = bullet_template.instantiate()
