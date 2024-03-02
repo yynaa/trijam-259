@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5yhh7ge4l01x"]
+
+[ext_resource type="Shader" path="res://circles.gdshader" id="1_7yp7a"]
+[ext_resource type="Script" path="res://shader_control.gd" id="2_tsxw2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rmsoa"]
+shader = ExtResource("1_7yp7a")
+shader_parameter/centers = null
+shader_parameter/times = null
+shader_parameter/amount = null
+shader_parameter/ttime = null
+
+[node name="Polygon2D" type="Polygon2D"]
+material = SubResource("ShaderMaterial_rmsoa")
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(-398, -191, 1557, -193, 1550, 1181, -398, 1181)
+script = ExtResource("2_tsxw2")
