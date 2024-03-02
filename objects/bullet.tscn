@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkkmho18c8jdx"]
+
+[ext_resource type="Script" path="res://scripts/Bullet.gd" id="1_f2d00"]
+
+[node name="Bullet" type="Area2D"]
+position = Vector2(1000, 50)
+rotation = 3.14159
+script = ExtResource("1_f2d00")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-8, -3, 0, -2, 8, -3, 8, 3, 0, 2, -8, 3)
+
+[node name="Polygon" type="Polygon2D" parent="."]
+color = Color(0.6, 0.6, 0.6, 1)
+polygon = PackedVector2Array(-8, -3, 0, -2, 8, -3, 8, 3, 0, 2, -8, 3)
