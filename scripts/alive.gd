@@ -5,7 +5,7 @@ func _process(delta):
 	if has_overlapping_areas():
 		var coll = get_overlapping_areas()
 		for ca in coll:
-			if ca.name == "Bullet":
-				queue_free()
+			if ca.has_meta("is_bullet"):
 				ca.queue_free()
+				queue_free()
 	

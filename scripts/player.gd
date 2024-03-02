@@ -33,7 +33,7 @@ func _process(delta):
 		nb.position = position
 		nb.is_player_bullet = true
 		nb.rotation = rotation
-		nb.SPEED = 1000.0
+		nb.SPEED = 500.0
 		get_parent().add_child(nb)
 		shoot_timer = HOLD_SHOOT_SPEED
 	

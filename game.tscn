@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://8ytit7wei05n"]
 
 [ext_resource type="Texture2D" uid="uid://8irc071n63ce" path="res://assets/gridtile.png" id="1_jclhm"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="2_esnf4"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="2_mucxd"]
 [ext_resource type="PackedScene" uid="uid://c5yhh7ge4l01x" path="res://shader_controller.tscn" id="3_bicdv"]
+[ext_resource type="PackedScene" uid="uid://6e7tulelpw0" path="res://objects/player.tscn" id="4_goy1a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xfp32"]
 texture = ExtResource("1_jclhm")
@@ -36,12 +36,5 @@ script = ExtResource("2_mucxd")
 z_index = 7
 scale = Vector2(7.26967, 12.2674)
 
-[node name="Player" type="Area2D" parent="Playfield"]
+[node name="Player" parent="Playfield" instance=ExtResource("4_goy1a")]
 position = Vector2(50, 50)
-script = ExtResource("2_esnf4")
-
-[node name="Collider" type="CollisionPolygon2D" parent="Playfield/Player"]
-polygon = PackedVector2Array(-16, 12, -12, 0, -16, -12, 20, 0)
-
-[node name="Polygon" type="Polygon2D" parent="Playfield/Player"]
-polygon = PackedVector2Array(-16, 12, -12, 0, -16, -12, 20, 0)

@@ -6,6 +6,7 @@
 position = Vector2(1000, 50)
 rotation = 3.14159
 script = ExtResource("1_f2d00")
+metadata/is_bullet = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-8, -3, 0, -2, 8, -3, 8, 3, 0, 2, -8, 3)
