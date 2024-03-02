@@ -21,6 +21,10 @@ window/size/viewport_width=512
 window/size/viewport_height=512
 window/size/resizable=false
 
+[dotnet]
+
+project/assembly_name="Trijam-259"
+
 [input]
 
 Left={
