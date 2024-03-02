@@ -8,8 +8,11 @@ var times = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	add_circle(Vector2(25,25))
-	add_circle(Vector2(100,100))
+	#add_circle(Vector2(25,25))
+	#add_circle(Vector2(100,100))
+	#add_circle(Vector2(100,100))
+	#add_circle(Vector2(100,100))
+	pass
 
 
 func add_circle(pos):
