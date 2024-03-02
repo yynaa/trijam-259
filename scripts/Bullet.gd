@@ -18,4 +18,4 @@ func _process(delta):
 	position += SPEED * delta * Vector2.from_angle(rotation)
 	
 	if (position.x < -100 or position.x > 64*24+100 or position.y < -100 or position.y > 64*24+100):
-		
+		queue_free()

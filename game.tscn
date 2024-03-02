@@ -32,7 +32,9 @@ limit_right = 1536
 limit_bottom = 1536
 script = ExtResource("2_mucxd")
 
-[node name="Polygon2D" parent="Playfield/Camera" instance=ExtResource("3_bicdv")]
+[node name="ShaderController" parent="Playfield" instance=ExtResource("3_bicdv")]
+z_index = 7
+scale = Vector2(7.26967, 12.2674)
 
 [node name="Player" type="Area2D" parent="Playfield"]
 position = Vector2(50, 50)

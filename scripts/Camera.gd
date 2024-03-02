@@ -6,3 +6,4 @@ extends Camera2D
 func _process(delta):
 	if is_instance_valid(p):
 		position = p.position
+
