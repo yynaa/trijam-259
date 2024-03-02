@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c5yhh7ge4l01x" path="res://shader_controller.tscn" id="3_bicdv"]
 [ext_resource type="PackedScene" uid="uid://6e7tulelpw0" path="res://objects/player.tscn" id="4_goy1a"]
 [ext_resource type="Script" path="res://scripts/Ui.gd" id="4_e6b0f"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="2_esnf4"]
 [ext_resource type="FontFile" uid="uid://dsicnultqqggr" path="res://assets/Silkscreen-Regular.ttf" id="4_yojxp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xfp32"]
@@ -55,12 +56,6 @@ limit_right = 1536
 limit_bottom = 1536
 script = ExtResource("2_mucxd")
 
-[node name="ShaderController" parent="Playfield" instance=ExtResource("3_bicdv")]
-z_index = 7
-scale = Vector2(7.26967, 12.2674)
-
-[node name="Player" parent="Playfield" instance=ExtResource("4_goy1a")]
-position = Vector2(50, 50)
 [node name="Player" type="Area2D" parent="Playfield"]
 position = Vector2(100, 100)
 script = ExtResource("2_esnf4")
