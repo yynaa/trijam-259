@@ -8,6 +8,6 @@ func _process(delta):
 			if ca.has_meta("is_bullet"):
 				%Ui.death()
 				ca.queue_free()
-				queue_free()
+				#queue_free()
 				break
 	

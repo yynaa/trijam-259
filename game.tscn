@@ -2,10 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://8irc071n63ce" path="res://assets/gridtile.png" id="1_jclhm"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="2_mucxd"]
+[ext_resource type="PackedScene" uid="uid://6e7tulelpw0" path="res://objects/player.tscn" id="3_72o24"]
 [ext_resource type="PackedScene" uid="uid://c5yhh7ge4l01x" path="res://shader_controller.tscn" id="3_bicdv"]
-[ext_resource type="PackedScene" uid="uid://6e7tulelpw0" path="res://objects/player.tscn" id="4_goy1a"]
 [ext_resource type="Script" path="res://scripts/Ui.gd" id="4_e6b0f"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="2_esnf4"]
 [ext_resource type="FontFile" uid="uid://dsicnultqqggr" path="res://assets/Silkscreen-Regular.ttf" id="4_yojxp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xfp32"]
@@ -56,15 +55,8 @@ limit_right = 1536
 limit_bottom = 1536
 script = ExtResource("2_mucxd")
 
-[node name="Player" type="Area2D" parent="Playfield"]
-position = Vector2(100, 100)
-script = ExtResource("2_esnf4")
-
-[node name="Collider" type="CollisionPolygon2D" parent="Playfield/Player"]
-polygon = PackedVector2Array(-16, 12, -12, 0, -16, -12, 20, 0)
-
-[node name="Polygon" type="Polygon2D" parent="Playfield/Player"]
-polygon = PackedVector2Array(-16, 12, -12, 0, -16, -12, 20, 0)
+[node name="Player" parent="Playfield" instance=ExtResource("3_72o24")]
+position = Vector2(256, 256)
 
 [node name="GUI" type="CanvasLayer" parent="."]
 unique_name_in_owner = true

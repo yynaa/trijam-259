@@ -19,6 +19,7 @@ func death():
 		%GUI.visible = false
 		%Playfield.visible = false
 		return
+	
 	$Lives/Label.text = str(life)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
