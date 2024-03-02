@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://8ytit7wei05n"]
+[gd_scene load_steps=8 format=3 uid="uid://8ytit7wei05n"]
 
 [ext_resource type="Texture2D" uid="uid://8irc071n63ce" path="res://assets/gridtile.png" id="1_jclhm"]
+[ext_resource type="Script" path="res://WaveManager.gd" id="1_qnb2h"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="2_mucxd"]
 [ext_resource type="PackedScene" uid="uid://c5yhh7ge4l01x" path="res://shader_controller.tscn" id="3_bicdv"]
 [ext_resource type="PackedScene" uid="uid://6e7tulelpw0" path="res://objects/player.tscn" id="4_goy1a"]
@@ -17,6 +18,10 @@ sources/0 = SubResource("TileSetAtlasSource_xfp32")
 [node name="Game" type="Node"]
 
 [node name="Playfield" type="Node2D" parent="."]
+
+[node name="WaveManager" type="Node2D" parent="Playfield"]
+unique_name_in_owner = true
+script = ExtResource("1_qnb2h")
 
 [node name="Grid" type="TileMap" parent="Playfield"]
 tile_set = SubResource("TileSet_ft5su")

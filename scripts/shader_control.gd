@@ -23,7 +23,6 @@ func add_circle(pos):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	ttime += delta
-	print()
 	material.set_shader_parameter("gpos", 	(%Camera.position - Vector2.ONE * 256).clamp(Vector2(0,0), Vector2(1536,1536)))
 	material.set_shader_parameter("ttime", ttime)
 	material.set_shader_parameter("centers", circles)

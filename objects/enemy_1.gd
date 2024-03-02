@@ -16,11 +16,11 @@ func _process(delta):
 		rotation = atan2(p.position.y - position.y, p.position.x - position.x)
 		position += Vector2.from_angle(rotation) * SPEED * delta
 		
-		shoot_timer -= delta
-		if shoot_timer <= 0:
-			var nb = bullet_template.instantiate()
-			nb.position = position
-			nb.rotation = rotation
-			nb.SPEED = 600.0
-			get_parent().add_child(nb)
-			shoot_timer = SHOOT_SPEED
+		#shoot_timer -= delta
+		#if shoot_timer <= 0:
+			#var nb = bullet_template.instantiate()
+			#nb.position = position
+			#nb.rotation = rotation
+			#nb.SPEED = 600.0
+			#get_parent().add_child(nb)
+			#shoot_timer = SHOOT_SPEED
