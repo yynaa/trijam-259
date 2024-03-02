@@ -18,6 +18,8 @@ func death():
 		%GameOver.visible = true
 		%GUI.visible = false
 		%Playfield.visible = false
+		get_tree().current_scene.find_child("AudioStreamPlayer2").volume_db = -1000.0
+		get_tree().current_scene.find_child("AudioStreamPlayer").volume_db = -1000.0
 		return
 	
 	$Lives/Label.text = str(life)

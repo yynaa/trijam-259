@@ -85,7 +85,7 @@ float random( float seed )
 
 float get_radius(float t)
 {
-	return 128.0*64.0*0.95*exp(-0.25*t)*atan(4.2*t);
+	return 64.0*0.95*exp(-0.25*t)*atan(4.2*t);
 }
 
 vec4 translate_colors(vec4 color, int cnt) 

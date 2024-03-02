@@ -12,17 +12,21 @@ var p
 
 func start_wave():
 	wave += 1
+	get_tree().current_scene.find_child("Bombs").find_child("Label").text = str(wave)
 	objective = wave * 4
 	
 	for i in range(objective):
-		var ne = e1.instantiate() as Alive
+		var ne = el.pick_random().instantiate() as Alive
 		ne.position = Vector2(randf_range(0, 24*64), randf_range(0, 24*64))
 		while (ne.position - p.position).length() < 300:
 			ne.position = Vector2(randf_range(0, 24*64), randf_range(0, 24*64))
-		get_parent().add_child(ne)
-	get_parent().print_tree_pretty()
+		add_child(ne)
 
 func _ready():
-	p = get_parent().find_child("Player")
+	p = find_child("Player")
 	start_wave()
+
+func _process(_delta):
+	if objective <= 0:
+		start_wave()
 

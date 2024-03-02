@@ -6,6 +6,8 @@ const FRICTION = 3.5
 const HOLD_SHOOT_SPEED: float = 0.2
 const MASH_SHOOT_SPEED: float = 0.05
 
+var invuln = 0
+
 var shoot_timer: float = -1
 
 var velocity: Vector2 = Vector2.ZERO
@@ -14,6 +16,8 @@ var bullet_template: Resource = preload("res://objects/bullet.tscn")
 
 func _process(delta):
 	super(delta)
+	invuln -= delta
+	invuln = max(0,invuln)
 	
 	set_rotation(0)
 	var lmp: Vector2 = get_local_mouse_position()
@@ -31,6 +35,8 @@ func _process(delta):
 	
 	shoot_timer -= delta
 	if Input.is_action_pressed("Shoot") and shoot_timer <= 0:
+		get_tree().current_scene.find_child("AudioStreamPlayer").stop()
+		get_tree().current_scene.find_child("AudioStreamPlayer").play()
 		var nb = bullet_template.instantiate()
 		nb.position = position
 		nb.is_player_bullet = true
